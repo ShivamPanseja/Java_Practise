@@ -3,7 +3,11 @@
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Controllers/authController.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Entity/Auth.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Entity/Book.java
+/Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Entity/login.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Repository/BookRepository.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/Repository/authRepository.java
+/Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/config/SecurityConfig.java
+/Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/dtos/LoginRequest.java
+/Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/dtos/RegisterRequest.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/service/BookService.java
 /Users/shivam/Documents/Java_practise/src/main/java/com/example/Book/application/service/authService.java
