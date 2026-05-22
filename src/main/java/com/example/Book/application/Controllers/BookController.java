@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.Book.application.service.BookService;
 import com.example.Book.application.Entity.Book;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,11 @@ public class BookController {
         Book book = bookService.getBoookById(id);
         return ResponseEntity.ok(book);
 
+    }
+
+    @GetMapping("/books")
+    public ResponseEntity<List<Book>> getAllBooks() {
+        return ResponseEntity.ok(bookService.getAllBooks());
     }
 
     @PutMapping("/updatebook/{id}")

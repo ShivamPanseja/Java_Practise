@@ -20,7 +20,18 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/register", "/api/getbook/{id}", "/api/auth/**").permitAll()
+                .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/app.js",
+                    "/style.css",
+                    "/favicon.ico",
+                    "/api/auth/**",
+                    "/api/getbook/**",
+                    "/api/books",
+                    "/api/updatebook",
+                    "/api/deletebook"
+                ).permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());

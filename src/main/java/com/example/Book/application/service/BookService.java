@@ -27,6 +27,10 @@ public class BookService {
         return bookRepository.findById(id).orElse(null);
     }
 
+    public java.util.List<Book> getAllBooks() {
+        return bookRepository.findAll();
+    }
+
     public Book updateBook(Integer id, Book book) {
         return bookRepository.findById(id).map(existingBook -> {
             existingBook.setTitle(book.getTitle());
