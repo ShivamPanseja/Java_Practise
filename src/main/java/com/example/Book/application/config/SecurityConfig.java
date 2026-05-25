@@ -28,6 +28,9 @@ public class SecurityConfig {
                     "/favicon.ico",
                     "/api/auth/**",
                     "/api/getbook/**",
+                    "/api/addbook",
+                    "/api/updatebook/**",
+                    "/api/deletebook/**",
                     "/api/auth/login",
                     "/api/books"
                 ).permitAll()
