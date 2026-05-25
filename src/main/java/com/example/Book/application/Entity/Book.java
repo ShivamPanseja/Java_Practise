@@ -31,5 +31,6 @@ public class Book {
     private LocalDateTime updateTime;
     @CreationTimestamp
     private LocalDateTime createdAt;
+    private String imageUrl;
 }
 

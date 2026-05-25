@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.book.application.service.BookService;
 import com.example.book.application.entity.Book;
+import org.springframework.web.multipart.MultipartFile;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,11 @@ public class BookController {
     }
 
     @PostMapping("/addbook")
-    public ResponseEntity <Book> addBook(@RequestBody Book book, @RequestHeader("Authorization") String token) {
+    public ResponseEntity <Book> addBook(@ModelAttribute Book book,
+
+        @RequestParam("file") MultipartFile file,
+
+        @RequestHeader("Authorization") String token) {
         System.out.println("Reached at controller");
         Book savedBook = bookService.addBook(book, token);
         return ResponseEntity.ok(savedBook);
