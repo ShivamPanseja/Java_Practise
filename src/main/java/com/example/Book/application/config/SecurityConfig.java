@@ -1,4 +1,4 @@
-package com.example.Book.application.config;
+package com.example.book.application.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,17 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/register", "/api/getbook/{id}", "/api/auth/**").permitAll()
+                .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/app.js",
+                    "/style.css",
+                    "/favicon.ico",
+                    "/api/auth/**",
+                    "/api/getbook/**",
+                    "/api/auth/login",
+                    "/api/books"
+                ).permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());

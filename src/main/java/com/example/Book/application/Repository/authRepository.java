@@ -1,6 +1,6 @@
-package com.example.Book.application.Repository;
+package com.example.book.application.repository;
 
-import com.example.Book.application.Entity.Auth;
+import com.example.book.application.entity.Auth;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

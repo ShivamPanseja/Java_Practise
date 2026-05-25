@@ -1,4 +1,4 @@
-package com.example.Book.application.Entity;
+package com.example.book.application.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 // import org.springframework.data.annotation.CreationTimestamp;
 
 

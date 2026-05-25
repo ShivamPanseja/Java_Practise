@@ -1,12 +1,10 @@
-package com.example.Book.application.Controllers;
+package com.example.book.application.controllers;
 
-// import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
-
-import com.example.Book.application.service.BookService;
-import com.example.Book.application.Entity.Book;
+import com.example.book.application.service.BookService;
+import com.example.book.application.entity.Book;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -24,28 +22,33 @@ public class BookController {
     }
 
     @PostMapping("/addbook")
-    public ResponseEntity <Book> addBook(@RequestBody Book book) {
+    public ResponseEntity <Book> addBook(@RequestBody Book book, @RequestHeader("Authorization") String token) {
         System.out.println("Reached at controller");
-        Book savedBook = bookService.addBook(book);
+        Book savedBook = bookService.addBook(book, token);
         return ResponseEntity.ok(savedBook);
     }
 
     @GetMapping("/getbook/{id}")
-    public ResponseEntity <Book> getBookById(@PathVariable Integer id) {
-        Book book = bookService.getBoookById(id);
+    public ResponseEntity <Book> getBookById(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+        Book book = bookService.getBoookById(id, token);
         return ResponseEntity.ok(book);
 
     }
 
+    @GetMapping("/books")
+    public ResponseEntity<java.util.List<Book>> getAllBooks(@RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(bookService.getAllBooks());
+    }
+
     @PutMapping("/updatebook/{id}")
-    public ResponseEntity <Book> updateBook(@PathVariable Integer id, @RequestBody Book book) {
-        Book updateBook = bookService.updateBook(id, book);
+    public ResponseEntity <Book> updateBook(@PathVariable Integer id, @RequestBody Book book, @RequestHeader("Authorization") String token) {
+        Book updateBook = bookService.updateBook(id, book, token);
         return ResponseEntity.ok(updateBook);
     }
 
     @DeleteMapping("/deletebook/{id}")
-    public ResponseEntity <String> deleteBook(@PathVariable Integer id) {
-        Book deleteBook = bookService.deleteBook(id);
+    public ResponseEntity <String> deleteBook(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+        Book deleteBook = bookService.deleteBook(id, token);
         return ResponseEntity.ok("Book deleted successfully");
     }
 }

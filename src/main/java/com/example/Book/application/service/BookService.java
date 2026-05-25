@@ -1,11 +1,11 @@
-package com.example.Book.application.service;
+package com.example.book.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.example.Book.application.Repository.BookRepository;
+import com.example.book.application.repository.BookRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
-import com.example.Book.application.Entity.Book;
+import com.example.book.application.entity.Book;
 
 @Service
 
@@ -18,16 +18,20 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public Book addBook(Book book) {
+    public Book addBook(Book book, String token) {
         return bookRepository.save(book);
         // Logic to add the book to the database or perform any necessary operations
     }
 
-    public Book getBoookById(Integer id) {
+    public Book getBoookById(Integer id, String token) {
         return bookRepository.findById(id).orElse(null);
     }
 
-    public Book updateBook(Integer id, Book book) {
+    public java.util.List<Book> getAllBooks() {
+        return bookRepository.findAll();
+    }
+
+    public Book updateBook(Integer id, Book book, String token) {
         return bookRepository.findById(id).map(existingBook -> {
             existingBook.setTitle(book.getTitle());
             existingBook.setAuthor(book.getAuthor());
@@ -38,7 +42,7 @@ public class BookService {
     }
 
 
-    public Book deleteBook(Integer id) {
+    public Book deleteBook(Integer id, String token) {
         return bookRepository.findById(id).map(existingBook -> {
             bookRepository.delete(existingBook);
             return existingBook;
